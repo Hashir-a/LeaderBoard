@@ -1,3 +1,6 @@
 {
-  "mongoURI": "mongodb+srv://hashirmohsineen:Xenon1212185858@devconnector.on21sfz.mongodb.net/?retryWrites=true&w=majority"
+  "mongoURI": "mongodb+srv://hashirmohsineen:Xenon1212185858@devconnector.on21sfz.mongodb.net/?retryWrites=true&w=majority",
+  "jwtSecret": "jwtSecret",
+  "githubClientId": "",
+  "githubSecret": ""
 }
