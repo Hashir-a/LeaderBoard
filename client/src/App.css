@@ -150,10 +150,11 @@ img {
 
 .alert {
   padding: 0.8rem;
-  margin: 1rem 0;
+  margin-top: 4rem;
   opacity: 0.9;
   background: var(--light-color);
-  color: #333;
+  color: #2d2c2c;
+  position: relative
 }
 
 .btn-primary,
@@ -185,7 +186,7 @@ img {
 .badge-danger,
 .alert-danger {
   background: var(--danger-color);
-  color: #fff;
+  color: #eedddd;
 }
 
 .btn-success,
@@ -300,6 +301,7 @@ button {
 
 /* Navbar */
 .navbar {
+  margin-bottom: 1.5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
