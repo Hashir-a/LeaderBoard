@@ -33,7 +33,9 @@ const App = () => {
             <Route exact path='/' Component={Landing} />
             <Route exact path='/register' Component={Register} />
             <Route exact path='/login' Component={Login} />
-            <PrivateRoute exact path='/dashboard' Component={Dashboard} />
+            <Route element={<PrivateRoute />}>
+              <Route exact path='/dashboard' Component={Dashboard} />
+            </Route>
           </Routes>
         </Router>
       </Provider>
