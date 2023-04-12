@@ -1,6 +1,6 @@
 import './App.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import { Fragment } from 'react';
+import { Fragment, useEffect } from 'react';
 import Navbar from './components/layout/Navbar';
 import Landing from './components/layout/Landing';
 import Register from './components/auth/Register';
@@ -9,22 +9,33 @@ import Alert from './components/layout/Alert';
 //Redux
 import { Provider } from 'react-redux';
 import store from './store';
+import { loadUser } from './actions/auth';
+import setAuthToken from './utils/setAuthToken';
 
-const App = () => (
-  <Fragment>
-    <Provider store={store}>
-      <Router>
-        <Alert />
-        <Navbar />
+if (localStorage.token) {
+  setAuthToken(localStorage.token);
+}
 
-        <Routes>
-          <Route exact path='/' Component={Landing} />
-          <Route exact path='/register' Component={Register} />
-          <Route exact path='/login' Component={Login} />
-        </Routes>
-      </Router>
-    </Provider>
-  </Fragment>
-);
+const App = () => {
+  useEffect(() => {
+    store.dispatch(loadUser());
+  }, []);
+  return (
+    <Fragment>
+      <Provider store={store}>
+        <Router>
+          <Alert />
+          <Navbar />
+
+          <Routes>
+            <Route exact path='/' Component={Landing} />
+            <Route exact path='/register' Component={Register} />
+            <Route exact path='/login' Component={Login} />
+          </Routes>
+        </Router>
+      </Provider>
+    </Fragment>
+  );
+};
 
 export default App;
