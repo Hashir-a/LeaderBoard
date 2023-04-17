@@ -6,12 +6,17 @@ import PropTypes from 'prop-types';
 
 const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
   const authLinks = (
-    <li>
-      <a href='#!' onClick={logout}>
-        <i className='fas fa-sign-out-alt'></i>
-        Logout
-      </a>
-    </li>
+    <Fragment>
+      <li>
+        <a href='#!' onClick={logout}>
+          <i className='fas fa-sign-out-alt'></i>
+          Logout
+        </a>
+      </li>
+      <li>
+        <Link to='/dashboard'>Dashboard</Link>
+      </li>
+    </Fragment>
   );
 
   const guestLinks = (
